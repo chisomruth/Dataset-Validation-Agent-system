@@ -1,0 +1,6 @@
+langchain
+gradio
+dotenv
+langchain-community
+together
+openai
