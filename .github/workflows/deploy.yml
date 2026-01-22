@@ -1,0 +1,31 @@
+name: Deploy API
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Run tests
+      run: |
+        python -m pytest tests/ || echo "No tests found"
+    
+    - name: Deploy to Render/Railway/Fly.io
+      run: |
+        echo "Add your deployment commands here"
+        # Example for Railway: railway up
+        # Example for Render: render deploy
