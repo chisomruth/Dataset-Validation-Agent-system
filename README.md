@@ -1,4 +1,4 @@
-# LOCAL-FIRST DATASET VALIDATION AGENT (NO FIXES)
+# DATASET VALIDATION AGENT 
 
 This project is a **read-only agent** that inspects **tabular datasets**, identifies issues, and produces a structured report. The agent **does not modify the dataset** — it only detects and reports problems.
 
