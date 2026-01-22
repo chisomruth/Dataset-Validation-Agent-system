@@ -15,20 +15,4 @@ This agent provides a **safe, local-first solution** to quickly assess dataset q
 
 
 
-### Capabilities
-
-#### Schema Checks
-- Validate column types and formats  
-- Detect missing columns  
-- Check basic constraints (e.g., unique IDs)  
-
-#### Value Checks
-- Identify missing or placeholder values  
-- Detect outliers and unusual distributions  
-- Highlight rare categories  
-
-#### Duplication Checks
-- Detect duplicate rows  
-
-
 > ⚠️ **Note:** This project is under active development. The agent currently only detects and reports issues; it does not modify the dataset.
