@@ -1,4 +1,4 @@
-name: Deploy API
+name: Deploy to Render
 
 on:
   push:
@@ -20,12 +20,17 @@ jobs:
       run: |
         pip install -r requirements.txt
     
-    - name: Run tests
+    - name: Run tests (optional)
       run: |
-        python -m pytest tests/ || echo "No tests found"
+        python -m pytest tests/ || echo "No tests found, skipping"
     
-    - name: Deploy to Render/Railway/Fly.io
+    - name: Deploy to Render
+      env:
+        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
       run: |
-        echo "Add your deployment commands here"
-        # Example for Railway: railway up
-        # Example for Render: render deploy
+        curl -X POST \
+          -H "Authorization: Bearer $RENDER_API_KEY" \
+          -H "Content-Type: application/json" \
+          https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys \
+          -d '{"clearCache": "do_not_clear"}'
