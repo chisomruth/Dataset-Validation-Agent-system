@@ -6,6 +6,10 @@ from typing import Literal
 from Agent.agent import DatasetValidationAgent
 import tabula
 import pdfplumber
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="Dataset Validation Agent", version="1.0.0")
 agent = DatasetValidationAgent()
@@ -79,4 +83,5 @@ async def supported_formats():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT"))
+    uvicorn.run(app, host="0.0.0.0", port=port)

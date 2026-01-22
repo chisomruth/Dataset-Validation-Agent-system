@@ -22,7 +22,7 @@ jobs:
     
     - name: Run tests (optional)
       run: |
-        python -m pytest tests/ || echo "No tests found, skipping"
+        python -m pytest tests/ || echo "No tests found"
     
     - name: Deploy to Render
       env:
