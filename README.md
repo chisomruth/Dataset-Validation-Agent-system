@@ -12,28 +12,6 @@ This agent provides a **safe, local-first solution** to quickly assess dataset q
 - It Currently focuses on tabular datasets.
 - Future updates may expand capabilities into other dataset modalities.
 
----
-
-### Architecture
-                   ┌────────────────────────┐
-                   │  Validation Agent      │
-                   │  (Read-Only / Local)  │
-                   └───────────┬────────────┘
-                               │
-      ┌───────────────┬───────────────┬───────────────┐
-      │               │               │               │
-┌───────────────┐ ┌───────────────┐ ┌───────────────┐
-│ Schema Checks │ │ Value Checks  │ │ Duplication & │
-│               │ │               │ │ Leakage Checks│
-└───────────────┘ └───────────────┘ └───────────────┘
-      │               │               │
-┌───────────────┐ ┌───────────────┐ ┌───────────────┐
-│ Column types  │ │ Missing/      │ │ Exact/Near-   │
-│ & formats     │ │ placeholder   │ │ duplicate     │
-│ Columns &     │ │ values        │ │ rows          │
-│ constraints   │ │ Outliers      │ │ Leakage       │
-└───────────────┘ │ Rare values   │ └───────────────┘
-                  └───────────────┘
 
 
 
