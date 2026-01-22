@@ -16,6 +16,7 @@ agent = DatasetValidationAgent()
 
 def load_tabular_data(file_content: bytes, filename: str) -> pd.DataFrame:
     """Load tabular data from various file formats."""
+    
     file_ext = filename.lower().split('.')[-1]
     
     if file_ext == 'csv':
@@ -41,6 +42,7 @@ async def validate_dataset(
     target_type: Literal["categorical", "numeric"] = Form(...)
 ):
     """Validate uploaded tabular dataset."""
+    
     try:
         # Read file content
         file_content = await file.read()
